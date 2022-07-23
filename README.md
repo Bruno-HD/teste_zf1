@@ -2,6 +2,24 @@
 
 Sistema desenvolvido por Bruno da Costa Monteiro para apresentação das qualidades técnicas
 
+**Backend - PHP-Zend**
+O sistema foi montado utilizando dois módulos, sendo o primeiro apenas de boas vindas e o segundo de entregas.
+Para o módulo de Entregas foi feito um CRUD com 3 actions sendo elas Lista, Manter e Remover
+* Listar, nesta etapa utiliza-se o zend_db para consultar no banco de dados todas as entregas com st_ativo
+* Manter nesta etapa é verificado o parâmetro de co_entrega, que é como foi chamado o campo chave primário da tabela de entrega. Se houver valor neste campo, ele entra no modo de edição senão é um cadastro.
+* Remover, nesta etapa, o sistema faz com que a flag st_ativo fique como N no banco de dados e apartir dai ela não será mais visualizada, nem na listagem e nem na edição.
+
+**Editar e Cadastrar foi mantida na mesma action devido a utilização de validadores e filtros bem como para atender a uma forma de utilização do Zend1 onde trabalhei. Neste formato, não precisamos contruir varias vezes a tela, apenas uma vez e o resto da comunicação é feito através de requisições ajax onde a resposta desta action é um json dependendo de como ela é chamada**
+
+**Todas as validações dos formulários são feitas pelo Zend_Form, o que garante maior segurança da informação. Todos dados deverão obrigatoriamente passar por uma validação independente de onde possa vir**
+
+
+**Frontend**
+A parte do frontend foi montada utilizando HTML5, jQuery e Bootstrap.
+* Foi utilizado alguns recursos do jQuery como ajax para manter os dados e validar pelo lado do servidor
+* No Bootstrap foi utilizado recursos como grid, buttons e outros para tornar a visualização agradável.
+* Conforme solicitado o sistema deverá funcionar também de forma responsiva!
+
 
 ### INSTALAÇÃO:
 * Copiar todos os arquivos deste projeto para seu computador.
