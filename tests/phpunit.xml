@@ -1,0 +1,36 @@
+<phpunit bootstrap="./bootstrap.php">
+    <testsuite name="Application Test Suite">
+        <directory>./application</directory>
+    </testsuite>
+    
+    <testsuite name="Library Test Suite">
+        <directory>./library</directory>
+    </testsuite>
+    
+    <groups>
+        <!-- Verificação por CRUD no sistema -->
+        <include>
+            <group>db-create</group>
+            <group>db-read</group>
+            <group>db-update</group>
+            <group>db-delete</group>
+            <group>nao-homologado</group>
+        </include>
+         
+        <!-- Evitar aserts desnecessários -->
+        <exclude>
+            <group>homologado</group>
+            <group>pular</group>
+            <group>ignorar</group>
+        </exclude>
+    </groups>    
+    
+    <filter>
+        <!-- If Zend Framework is inside your project's library, uncomment this filter -->
+        <!-- 
+        <whitelist>
+            <directory suffix=".php">../../library/Zend</directory>
+        </whitelist>
+        -->
+    </filter>
+</phpunit>

@@ -1,0 +1,8 @@
+/nbproject/
+/public/.htaccess
+/public/min/
+/public/phpliteadmin/
+/public/tmp/
+/vendor/
+/.idea/
+/.history/

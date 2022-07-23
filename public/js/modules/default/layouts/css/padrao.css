@@ -1,0 +1,113 @@
+/** CSS RESET */
+html, body, div, span, applet, object, iframe, p, blockquote, pre, abbr, acronym, address, big, code,del, dfn, img, ins, kbd, q, s, samp, small, strike, tt, var, dl, dt, dd, ol, ul, li,fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin:0; padding:0; border:0; outline:0; font-weight:inherit; font-style:inherit; font-size:100%; font-family:inherit; vertical-align:baseline; } 
+body { line-height:1; font-family: sans-serif; font-size: 14px;} 
+table { border-collapse:separate; border-spacing:0; } 
+caption, th, td { text-align:left; font-weight:normal;} 
+blockquote:before, blockquote:after, q:before, q:after { content:"";} 
+blockquote, q { quotes:"" ""; } 
+  
+/* HTML5 tags */ 
+header, section, footer, aside, nav, article, figure { display: block; } 
+input { font-size: 12px; font-family: sans-serif; } 
+select, textarea, input.text { font-size: 12px; font-family: verdana; } 
+form .errors { color: red;}
+
+
+
+body {background: #fff url(/js/modules/default/layouts/imagens/background/bg-gradient.png) 0 0 repeat-x; font: normal 14px/20px Arial, Helvetica, sans-serif;}
+
+
+ /** 
+  * Modificações do BOOTSTRAP 
+  * Deve ser declardo no inicio para não afetar modificações específicas de projetos.
+  ***/
+.table>thead>tr>th {text-align: center; vertical-align: middle;}
+.table td {vertical-align: middle;}
+.navbar.hidden-desktop .nav-header {padding: 3px 0px; font-size: 12px;}
+.well {background-color: #fff; border-color: rgba(0,0,0,0.15); border-radius: 5px;}
+.form-actions {border-top: 0px; text-align: right; padding: 0px; margin-top: 10px;}
+.alert {line-height: 17px;}
+.alert ul {margin-left: 40px;}
+.nav.nav-tabs {padding-top: 20px;}
+fieldset {margin-top: 15px; padding-left: 0px;}
+.form-group {margin-bottom: 0px;}
+.form-group .tab-content .row {padding-top: 5px; padding-bottom: 5px; min-height: 50px;} 
+.popover {width: 350px;}
+ul.errors {clear: both; margin-left: 20px;}
+input.form-control, select.form-control {padding: 6px 5px;}
+h5 {font-weight: bold;}
+.tab-content {padding-top: 10px;}
+.table-bordered {border-radius:5px;}
+.menuLateral .nav>li>a {padding: 3px 15px;}
+
+
+.well {background-color: #fff; border-color: rgba(0,0,0,0.15); border-radius: 5px;}
+.form-actions { border-top: 0px; text-align: right; padding: 0px; margin-top: 10px;}
+.containerFormLogin {margin: 40px 0px;}
+
+
+#context h5 {margin: 10px 0px 0px 0px;}
+#context hr {margin: 5px 0px 20px 0px;}
+
+
+
+
+.tblWhite {background-color: #FFFFFF;}
+.padding-top7 {padding-top: 7px;}
+.margin-top20 {margin-top: 20px;}
+.margin-top10 {margin-top: 10px;}
+.margin-bottom20 {margin-bottom: 20px;}
+.margin-bottom10 {margin-bottom: 10px;}
+.ajaxCarregando{background-color: #60BC01; color: #FFFFFF; display: none; font-size: 13px; font-weight: bold; height: 35px; left: 0px; line-height: 35px; margin: 0; position: fixed; text-align: center; top: 0px; width: 100%; z-index: 100000;}
+.separator {width: 100%; border-bottom: 5px solid #C90B10}
+.social-icons {margin-top: 30px;}
+
+
+
+/** Remover do código estas e substituir pelas principais na parte superior */
+.margin-top-20 {margin-top: 20px;}
+.margin-top-40 {margin-top: 40px;}
+.margin-bottom-20 {margin-bottom: 20px;}
+
+
+
+
+fieldset legend {font-size: 15px; font-weight: bold; border-bottom: 1px solid red; margin-bottom: 10px; padding-top: 15px;}
+.panel-heading.panel-head-condensed {padding: 2px 15px;}
+
+
+
+@-ms-viewport {
+  width: device-width;
+}
+
+/* Desktop large
+------------------------- */
+@media (min-width: 1200px) {
+
+}
+
+/* Desktop
+------------------------- */
+@media (min-width: 980px) and (max-width: 1198px){
+
+}
+
+/* Tablet to desktop
+------------------------- */
+@media (min-width: 768px) and (max-width: 979px) {
+
+}
+
+/* Tablet
+------------------------- */
+@media (max-width: 767px) {
+
+}
+
+
+/* Landscape phones
+------------------------- */
+@media (max-width: 480px) {
+    
+}

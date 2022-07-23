@@ -1,0 +1,289 @@
+/*
+Theme Name: Template 2015 GDF - Administrações Regionais
+Description: Template WORDPRESS do novo LAYOUT dos portais GDF - Administrações Regionais
+Author: Coordenação de Tecnologia da Informação / Diretoria de Desenvolvimento - Casa Civil
+Version: 1.0
+*/ 
+
+/*FONTES*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+/** CSS RESET */
+html, body, div, span, applet, object, iframe, p, blockquote, pre, abbr, acronym, address, big, code,del, dfn, img, ins, kbd, q, s, samp, small, strike, tt, var, dl, dt, dd, ol, ul, li,fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin:0; padding:0; border:0; outline:0; font-weight:inherit; font-style:inherit; font-size:100%; font-family:inherit; vertical-align:baseline; }
+body { line-height:1; font-family: sans-serif; font-size: 14px;}
+table { border-collapse:separate; border-spacing:0; }
+caption, th, td { text-align:left; font-weight:normal;}
+blockquote:before, blockquote:after, q:before, q:after { content:"";}
+blockquote, q { quotes:"" ""; }
+
+/* HTML5 tags */
+header, section, footer, aside, nav, article, figure { display: block; }
+input { font-size: 12px; font-family: sans-serif; }
+select, textarea, input.text { font-size: 12px; font-family: verdana; }
+form .errors { color: red;}
+
+body {font-size: 16px; font-family: "Open Sans", sans-serif; background-image: url(../imagens/background/background_palacio.jpg);}
+
+ /**
+  * Modificações do BOOTSTRAP
+  * Deve ser declardo no inicio para não afetar modificações específicas de projetos.
+  ***/
+.table>thead>tr>th {text-align: center; vertical-align: middle;}
+.table td {vertical-align: middle;}
+.navbar.hidden-desktop .nav-header {padding: 3px 0px; font-size: 12px;}
+.well {background-color: #fff; border-color: rgba(0,0,0,0.15); border-radius: 5px;}
+.form-actions {border-top: 0px; text-align: right; padding: 0px; margin-top: 10px;}
+.alert {line-height: 17px;}
+.alert ul {margin-left: 40px;}
+.nav.nav-tabs {padding-top: 20px;}
+fieldset {margin-top: 15px; padding-left: 0px;}
+.form-group .tab-content .row {padding-top: 5px; padding-bottom: 5px; min-height: 70px;}
+.popover {width: 350px;}
+ul.errors {clear: both; margin-left: 20px;}
+input.form-control, select.form-control {padding: 6px 5px;}
+h5 {font-weight: bold;}
+.tab-content {padding-top: 10px;}
+.table-bordered {border-radius:5px;}
+.menuLateral .nav>li>a {padding: 3px 15px;}
+.form-group {margin-bottom: 0px;}
+.alert-warning{color:black;}
+h4{font-size:14px;}
+.table>tbody>tr>th{color:white; font-family: "Titillium Web", sans-serif; text-transform: uppercase; margin-top: 10px; border-top: none; font-weight: bold; font-size: 18px;}
+.table>tbody>tr{background-color:rgba(0,0,0,0.5); color:white; font-size: 14px;}
+.table>tbody>tr:first-child{background-color:transparent;}
+.table>tbody>tr a{color:#ffcb29; }
+.table-responsive{margin-top:10px; }
+
+.btn-favorito{vertical-align: middle; border-radius: 50%; background-color:#197f4a; border:2px solid #00a759; width:50px; height:50px; background-image: url(../imagens/icones/favoritos-dodf-icone.svg); background-repeat: no-repeat; background-position: center; background-size: contain;}
+.btn-favorito:hover{background-color:#02441d; border:2px solid #197f4a;}
+
+
+.header {margin-top: 20px;}
+.header .redesSociais {font-size: 20px; line-height: 57px;}
+.header .redesSociais i {font-size: 25px;}
+.header .redesSociais  a {color:#434343;}
+.header .redesSociais  a:hover {color:#00A54F; text-decoration:none}
+
+
+.header .lnSuperior {background-color: #FFCB00; margin-top: 5px; height: 5px;}
+.header .areaMenuTopo {background-color: #333; margin-top: 0px; border-top: 7px solid #FFCB00; border-bottom: 2px solid #FFF;}
+.header .areaMenuTopo .menuTop {}
+.header .areaMenuTopo .menuTop .nav>li>a {padding: 0px 15px; color: #FFF; background-color:#111; border-radius: 0px; font-family: "Titillium", sans-serif;}
+.header .areaMenuTopo .menuTop .nav>li>a:hover {text-decoration: none; background-color:#FFCB00; color:#000;}
+.header .areaMenuTopo .menuTop .nav-pills>li.active>a {padding: 0px; background-color: transparent;}
+.header .areaMenuTopo .menuTop ul {height: 50px; line-height: 50px;}
+.header .areaMenuTopo .menuTop ul li {margin-right: 1px; float: left;}
+.header .areaMenuTopo .menuTop ul li + li {margin-left: 2px;}
+.header .areaMenuTopo .menuTop ul li:last-child {margin-right: 0px;}
+.header .areaMenuTopo .menuTop ul li span {font-size: 12px; color:#61b688; margin-right:5px;}
+.header .areaMenuTopo .menuTop ul li span:hover {background-color: transparent }
+.header .areaMenuTopo .menuTop ul li a {color: #000; font-size: 13px; border-radius: 4px;}
+.header .areaMenuTopo .menuTop ul li a:hover, .header .areaMenuTopo .menuTop ul li a:focus {color: #fff; background-color: transparent; text-decoration: underline}
+.header .areaMenuTopo .menuTop ul li .nav-child {display: none;}
+.topo-site {font-family: "Montserrat", sans-serif; font-size: 12px; background-color:#515151;}
+.topo-site .topo1  ul{list-style: none;}
+.topo-site .topo1 ul li{display:inline;}
+.topo-site .topo1 ul li a{color:#ccc; line-height:30px; margin-right:40px; cursor:pointer; transition: all linear 0.2s;}
+.topo-site .topo1 ul li a:hover{color:#fff; text-decoration: none; }
+.topo-site .topo1 ul li:last-child a{margin-right: 0;}
+.topo-site .separa-ancoras{margin:0 10px; color:#ccc;}
+.ancoras{margin-top:0px;}
+.ancoras a{font-family: "Montserrat", sans-serif; font-size: 12px;}
+.ancoras a:hover{text-decoration: none; color:#999;}
+.ancoras h1{font-family: "Titillium Web", sans-serif; text-transform: uppercase; font-size: 36px; margin-bottom: 0; color:#515151;}
+.data{}
+.data a{margin-left:15px;}
+.data a:hover{-webkit-filter:brightness(1.1);}
+.data h3{font-family: "Titillium Web", sans-serif; font-size: 30px; text-transform: uppercase; margin-top:26px; margin-bottom:15px; color:#515151;}
+.img-grande{position:relative;}
+.img-grande{margin-top:40px; height: 430px; border-top:3px solid #00A858; border-bottom:3px solid #00A858; background-image: url('img/banner-superior.jpg'); background-repeat: no-repeat; background-position: center; background-size: cover;}
+.img-pequena{position:relative;}
+.img-pequena{margin-top:40px; height: 250px; border-top:3px solid #00A858; border-bottom:2px solid #00A858; background-image: url('img/banner-superior-internas.jpg'); background-repeat: no-repeat; background-position: center; background-size: cover;}
+.titulo-topo-internas h3{font-family: "Titillium Web", sans-serif; font-size: 30px; color:white; margin-top:40px;}
+.menu-principal{margin-top:20px;}
+
+
+
+.areaSuperior{}
+.areaSuperior .logo-gdf{}
+.areaSuperior .logo-gdf img{width:70%;}
+
+#areaPrincipal {margin-bottom: 200px;}
+#areaPrincipal .formDODF {margin-top: 30px; padding: 20px 0px; background-color: #444444; color: #FFFFFF; text-transform: uppercase; border-radius: 7px; margin-bottom: 25px; background-color: rgba(0, 0, 0, 0.7);}
+#areaPrincipal .formDODF .btnProcurar {width: 100%; background-color: #FFCB00; border: 0px; height: 110px; line-height: 125px; font-size: 70px;}
+#areaPrincipal .formDODF .btnProcurar:hover {background-color: #e5ba2d;}
+
+
+#areaPrincipal #diarioDia, #areaPrincipal #diarioDiaFull {background:#007532; background-image:url(../imagens/icones/diario-do-dia.svg); background-repeat:no-repeat; background-size:80px; background-position:center left; border-radius:7px; height:90px; text-align:center; line-height:90px; margin-bottom:30px; color:white; font-size:25px; font-weight:bold; text-shadow:1px 1px 1px black; font-family: "Titillium Web", sans-serif; text-transform: uppercase;  }
+#areaPrincipal #diarioDia:hover, #areaPrincipal #diarioDiaFull:hover {background:#005B27; cursor:pointer; background-image:url(../imagens/icones/diario-do-dia.svg); background-repeat:no-repeat; background-size:80px; background-position:center right;}
+#areaPrincipal #diarioDia, #areaPrincipal #diarioDia:hover, #areaPrincipal #diarioDia, #areaPrincipal #diarioDiaFull:hover {transition:all 0.15s linear; -webkit-transition:all 0.15s linear; -moz-transition:all 0.15s linear; }
+#areaPrincipal #textoAjuda {background:rgba(0,0,0,0.7); border-radius:7px; padding:25px; line-height:25px; color:white;}
+#areaPrincipal #textoAjuda h4 {margin-top:0; font-size: 20px;}
+
+#historico {background:#3f79bb; background-image:url(../imagens/icones/historico-dodf.svg); background-repeat:no-repeat; background-size:90px; background-position:center left; border-radius:7px; height:90px; text-align:center; line-height:90px; margin-bottom:30px; color:white; font-size:25px; font-weight:bold; text-shadow:1px 1px 1px black; font-family: "Titillium Web", sans-serif; text-transform: uppercase;}
+#historico:hover {background:#346398; cursor:pointer; background-image:url(../imagens/icones/historico-dodf.svg); background-repeat:no-repeat; background-size:100px; background-position:center right; transition:all 0.15s linear; -webkit-transition:all 0.15s linear; -moz-transition:all 0.15s linear;}
+
+#favoritos {background:#505050; background-image:url(../imagens/icones/favoritos-dodf.svg); background-repeat:no-repeat; background-size:110px; background-position:center left; border-radius:7px; height:90px; text-align:center; line-height:90px; margin-bottom:30px; color:white; font-size:25px; font-weight:bold; text-shadow:1px 1px 1px black; font-family: "Titillium Web", sans-serif; text-transform: uppercase;}
+#favoritos:hover {background:#333; cursor:pointer; background-image:url(../imagens/icones/favoritos-dodf.svg); background-repeat:no-repeat; background-size:100px; background-position:center right; transition:all 0.15s linear; -webkit-transition:all 0.15s linear; -moz-transition:all 0.15s linear;}
+
+
+#areaPrincipal .areaAjuda {}
+#areaPrincipal .areaAjuda h3 {font-weight: bold; margin-top: 0px;}
+#areaPrincipal .areaAjuda a:hover {text-decoration: none;}
+
+#areaPrincipal .naoLocalizado {background-color: #FFF; padding: 20px; border-radius: 7px;  background-color: rgba(255, 255, 255, 0.8); line-height: 25px;}
+#areaPrincipal .naoLocalizado h3 {font-weight: bold; margin-top: 0px;}
+
+#areaPrincipal #areaResultado {display: none;}
+#areaPrincipal #areaResultado .areaPagination {background-color: #FFF; background-color: rgba(255, 255, 255, 0.7);}
+#areaPrincipal #areaResultado .areaPagination .pagination {margin: 5px 0px;}
+#areaPrincipal #areaResultado .areaPagination .pagination ul {}
+#areaPrincipal #areaResultado .areaPagination .pagination ul li {}
+#areaPrincipal #areaResultado .areaPagination .pagination ul li a {border: 0px;}
+#areaPrincipal #areaResultado .areaPagination .pagination>li>a {color: #FFF; background-color: #666666}
+#areaPrincipal #areaResultado .areaPagination .pagination>.disabled>a {background-color: #939393; color: #fff; }
+#areaPrincipal #areaResultado .areaPagination .pagination>.active>a {background-color: #009540; color: #fff; }
+#areaPrincipal #areaResultado #divResult {background-color: #FFF; padding: 20px; border-radius: 7px;  background-color: rgba(255, 255, 255, 0.8);}
+#areaPrincipal #areaResultado #divResult a.lnkDodf {color: #006600; font-weight: bold;}
+#areaPrincipal #areaResultado #divResult a.lnkDodf:hover {color: #006600;}
+#areaPrincipal #areaResultado #divResult .localizado {font-style: italic; }
+
+#areaPrincipal .erroPreenchimento {line-height: 25px;}
+#areaPrincipal .erroPreenchimento h3 {margin-top: 0px;}
+#areaPrincipal .erroPreenchimento ul {}
+#areaPrincipal .erroPreenchimento ul li {margin-left: 30px;}
+
+#areaPrincipal .areaArquivos {margin-top: 20px; margin-bottom: 20px; background-color: #FFF; padding: 20px; border-radius: 7px;  background-color: rgba(255, 255, 255, 0.7); line-height: 25px;}
+#areaPrincipal .areaArquivos h3 {font-weight: bold; margin-top: 0px;}
+#areaPrincipal .areaArquivos hr {border-top: 1px solid #000;}
+
+
+#areaResultado ul.listarAnos {background-color: #444444; border-radius: 4px; line-height: 20px; padding: 5px 0px; text-align: center; min-width: 50px;}
+#areaResultado ul.listarAnos li {list-style: none; height: 35px; line-height: 35px;}
+#areaResultado ul.listarAnos li a {color: #FFF}
+#areaResultado ul.listarAnos li.active {list-style: none; background-color: #EFEFEF;}
+#areaResultado ul.listarAnos li.active a {color: #000}
+
+/** Layout padrão de arquivos de sistema... */
+.pasta { float: left; height: 120px; margin: 0px 10px 10px 10px; width: 80px; }
+.arquivo { float: left; height: 120px; margin: 0px 10px 10px 10px; width: 80px; color: #000; text-decoration: none;}
+.arquivo:hover {color: #000; text-decoration: none;}
+.nome { cursor: pointer; font: 11px sans-serif; text-align: center; padding-left: 15px;}
+.tipo_pasta { background: url(/js/modules/default/layouts/imagens/icones/SisPasta/tipo_pasta.png) no-repeat center; cursor: pointer; height: 65px; text-align: center; width: 95px;}
+.tipo_imagem{ background: url(/js/modules/default/layouts/imagens/icones/SisPasta/tipo_imagem.png) no-repeat center; cursor: pointer; text-align: center; max-height: 65px; max-width: 95px; }
+.tipo_video { display:block; background: url(/js/modules/default/layouts/imagens/icones/SisPasta/tipo_video.png) no-repeat center; cursor: pointer; height: 65px; text-align: center; width: 95px; }
+.tipo_musica { display:block; background: url(/js/modules/default/layouts/imagens/icones/SisPasta/tipo_musica.png) no-repeat center; cursor: pointer; height: 65px; text-align: center; width: 95px; }
+.tipo_pdf { display:block; background: url(/js/modules/default/layouts/imagens/icones/SisPasta/tipo_pdf.png) no-repeat center; cursor: pointer; height: 65px; text-align: center; width: 95px; }
+.tipo_html { display:block; background: url(/js/modules/default/layouts/imagens/icones/SisPasta/tipo_html.png) no-repeat center; cursor: pointer; height: 65px; text-align: center; width: 95px; }
+.tipo_gdocs { display:block; background: url(/js/modules/default/layouts/imagens/icones/SisPasta/tipo_gdocs.png) no-repeat center; cursor: pointer; height: 65px; text-align: center; width: 95px; }
+.tipo_desconhecido{ display:block; background: url(/js/modules/default/layouts/imagens/icones/SisPasta/tipo_desconhecido.png) no-repeat center; cursor: pointer; height: 65px; text-align: center; width: 95px; }
+
+
+.breadcrumb {margin-top: 20px; background-color: #197f4a; font-family: "Titillium Web", sans-serif;}
+.breadcrumb a{color:white;}
+
+.footer {background-image: linear-gradient(white, #f1f1f1); width:100%; margin-top:20px; z-index: -11}
+.footer img {padding: 20px 0px;}
+
+
+
+/** Padrão de projetos... */
+.tblWhite {background-color: #FFFFFF;}
+.padding-top7 {padding-top: 7px;}
+.padding-top7 {padding-top: 7px;}
+.margin-top10 {margin-top: 10px;}
+.margin-top20 {margin-top: 20px;}
+.margin-bottom10 {margin-bottom: 10px;}
+.margin-bottom20 {margin-bottom: 20px;}
+.margin-bottom50 {margin-bottom: 70px;}
+.margin-bottom60 {margin-bottom: 60px;}
+.ajaxCarregando{background-color: #60BC01; color: #FFFFFF; display: none; font-size: 13px; font-weight: bold; height: 35px; left: 0px; line-height: 35px; margin: 0; position: fixed; text-align: center; top: 0px; width: 100%; z-index: 100000;}
+.separator {width: 100%; border-bottom: 5px solid #C90B10}
+.social-icons {margin-top: 30px;}
+.padding-0{padding:0;}
+
+
+
+/** Remover do código estas e substituir pelas principais na parte superior */
+.margin-top-20 {margin-top: 20px;}
+.margin-top-40 {margin-top: 40px;}
+.margin-bottom-20 {margin-bottom: 20px;}
+.margin-bottom-25 {margin-bottom: 25px;}
+
+/** Novas classes histórico e favoritos */
+.titulos-do-site{font-family: "Titillium Web", sans-serif; font-size:30px; text-transform: uppercase;}
+
+.dodf-historico{background-color:rgba(0,0,0,0.7); margin-top:20px; border-radius: 5px; background-image: url(../imagens/icones/historico-dodf.svg); background-repeat: no-repeat; background-position: center; background-size: contain;  }
+.dodf-favoritos{background-color:rgba(0,0,0,0.7); margin-top:20px; border-radius: 5px; background-image: url(../imagens/icones/favoritos-dodf.svg); background-repeat: no-repeat; background-position: center; background-size: contain; }
+.dodf-favoritos-explicacao{background-color:rgba(0,0,0,0.7); margin-top:20px; border-radius: 5px; padding:15px; color:white; line-height: 1.7em;}
+
+.btn-excluir{background-color:#ff6714; border:none; font-weight: bolder; }
+.btn-excluir:hover{background-color:#d24e06; border:none; font-weight: bolder; }
+
+.box-favoritos{margin:0; text-align: right;}
+
+
+
+
+
+
+@-ms-viewport {
+    width: device-width;
+    .categoriasNoticias {width: 68%;}
+}
+
+/* Desktop large
+------------------------- */
+@media (min-width: 1200px) {
+    .categoriasNoticias {width: 67%;}
+}
+
+/* Desktop
+------------------------- */
+@media (min-width: 980px) and (max-width: 1198px){
+    .categoriasNoticias {width: 80%;}
+    .footer{position: static;}
+}
+
+/* Tablet to desktop
+------------------------- */
+@media (min-width: 768px) and (max-width: 979px) {
+    .tpGoverno {margin-bottom: 10px;}
+     .footer{position: static;}
+
+}
+
+/* Tablet
+------------------------- */
+@media (max-width: 767px) {
+    .control-group > button {float: left;}
+    .tpGoverno {margin-bottom: 10px;}
+    #divResultAno {padding-right: 0px;}
+    #areaResultado .row {margin-right: 0px;}
+    
+    #areaPrincipal .areaAjuda {margin-right: 0px}
+    #areaPrincipal .areaAjuda .col-md-2 {padding-right: 0px;}
+    #areaPrincipal .areaAjuda .col-md-10 {padding-right: 0px;}
+    .footer{position: static;}
+    .areaSuperior .logo-gdf img{width:100%; margin-top:10px;}
+    .areaSuperior .logo-dodf img{width:65%;}
+    .header .areaMenuTopo .menuTop ul li{width: 100%}
+    .header .areaMenuTopo .menuTop ul li + li {margin-left: 0px;}
+    #adGdf-ImgRetangular {width: 95%; margin-left: 1.5%;}
+
+    
+}
+
+
+/* Landscape phones
+------------------------- */
+@media (max-width: 480px) {
+    #areaResultado .row {margin-right: 0px;}
+    .box-favoritos{margin:15px 0 25px 0;}
+    .box-favoritos button{width:25px; height: 25px; }
+    .areaSuperior .logo-gdf img{width:100%; margin-top:7px;}
+    .header .areaMenuTopo .menuTop ul li + li {margin-left: 0px;}
+    #adGdf-ImgRetangular {width: 95%; margin-left: 1.5%;}
+}

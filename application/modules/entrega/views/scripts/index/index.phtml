@@ -1,0 +1,475 @@
+
+<form action="/default/index/resultado/" method="POST" id="formBuscaAvancada">
+    <div class="container campo-pesquisa">
+        <div class="row justify-content-center">
+            <div class="col-xl-12">
+                <div class="input-group">
+                    <input type="text" class="form-control input-campo-de-pesquisa" placeholder="Digite aqui sua busca..." name="termo" id="termo">
+                    <div class="input-group-append ferramentas-de-pesquisa">
+                        <span id="btnDePesquisa" class="input-group-text ferramenta-lupa">
+                            <img src="/js/modules/default/layouts/imagens/icones/ico-pesquisa.svg" alt="Botão Pesquisa DODF">
+                        </span>
+                        <span class="input-group-text ferramenta-lupa">|</span>
+                        <span id="filtroDePesquisa" class="input-group-text ferramenta-filtro">
+                            PESQUISA AVANÇADA<img src="/js/modules/default/layouts/imagens/icones/ico-filtro.svg" alt="Filtros de pesquisa" class="img-filtro">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container campo-filtro-pesquisa">
+        <div class="cx-pesquisa-avancada">
+            <div class="row">
+                <div class="col-xl-6 border-right-cinza">
+                    <!--PRIMEIRA LINHA-->
+                    <div class="titulo-pesquisa-avancada">
+                        Tipo de pesquisa <img src="/js/modules/default/layouts/imagens/icones/ico-info.svg" alt="Filtros de pesquisa" class="img-info">
+                        <span class="dica">
+                            A pesquisa exata pode ser utilizada com junção de expressões: Ex.: "secretaria de estado" ou por exemplo "detalhamento de despesa", sem a necessidade das aspas dupla<br /><br />
+                            A pesquisa do tipo contextual garante que as palavras devem existir, obrigatóriamente, no arquivo: Ex.: fazenda escritório carro.
+                        </span>
+                    </div>
+                    <input name="tpBusca" type="radio" id="resultado-exato" value="exata" checked="checked">
+                    <label for="resultado-exato">Resultado exato</label>
+                    <input name="tpBusca" type="radio" id="qq-resultado" value="contexto">
+                    <label for="qq-resultado">Busca contextual</label>
+                    <!--FIM DA PRIMEIRA LINHA-->
+
+                    <div class="areaSecao">
+                        <!--SEGUNDA LINHA-->
+                        <div class="titulo-pesquisa-avancada">TIPO DE SEÇÃO</div>
+                        <input name="tpSecao[]" type="checkbox" value="Todas" id="todas-secoes" checked="checked">
+                        <label for="todas-secoes">Todas Seções</label>
+
+                        <input name="tpSecao[]" type="checkbox" value="10" id="secao1">
+                        <label for="secao1">Seção I</label>
+
+                        <input name="tpSecao[]" type="checkbox" value="11" id="secao2">
+                        <label for="secao2">Seção II</label>
+
+                        <input name="tpSecao[]" type="checkbox" value="12" id="secao3">
+                        <label for="secao3">Seção III</label>
+                        <!--FIM DA SEGUNDA LINHA-->
+                    </div>
+
+                    <div class="areaTipoJornal">
+                        <!--TERCEIRA LINHA-->
+                        <div class="titulo-pesquisa-avancada">TIPO DE JORNAL</div>
+                        <input name="tpJornal[]" type="checkbox" id="todos-os-tipos" checked="checked" value="Todos">
+                        <label for="todos-os-tipos" class="w-90">Todos os tipos</label>
+
+                        <input name="tpJornal[]" type="checkbox" id="edicao-normal" value="15">
+                        <label for="edicao-normal">Edição normal</label>
+
+                        <input name="tpJornal[]" type="checkbox" id="edicao-especial" value="16">
+                        <label for="edicao-especial">Edição especial</label>
+
+                        <input name="tpJornal[]" type="checkbox" id="suplemento" value="14">
+                        <label for="suplemento">Suplemento</label>
+
+                        <input name="tpJornal[]" type="checkbox" id="edicao-extra" value="13">
+                        <label for="edicao-extra">Edição extra</label>
+                        <!--FIM DE TERCEIRA LINHA-->
+                    </div>
+                </div>
+
+                <div class="col-xl-6">
+                    <!--LINHA DATA-->
+                    <div class="mt-4">
+                        <div class="data">
+                            <p>Data inicial</p>
+                            <input type="text" id="dtInicial" name="dtInicial" value="01/01" maxlength="5">
+                        </div>
+                        <div class="data">
+                            <p>Data final</p>
+                            <input type="text" id="dtFinal" name="dtFinal" value="31/12" maxlength="5">
+                        </div>
+                        <div class="data">
+                            <p>Ano busca</p>
+                            <select name="ano" id="ano">
+                                <option value="todos">Todos</option>
+                                <?php foreach (range(date("Y"), 1967) as $ano): ?>
+                                    <option value="<?= $ano ?>"><?= $ano ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!--FIM DE LINHA DATA-->
+
+                    <div class="cx-informativa">
+                        <p>Para pesquisas anteriores a <span>01/05/2020</span> os filtros "tipo de seção", "tipo de jornal" e "onde pesquisar", não estão disponíveis.</p>
+                    </div>
+
+                    <div class="areaOndePesquisar">
+                        <!--LINHA TIPO DE MATÉRIA-->
+                        <div class="titulo-pesquisa-avancada mt-3">Onde pesquisar</div>
+                        <select name="tpLocalBusca" id="tpLocalBusca">
+                            <option value="tudo">Tudo</option>
+                            <option value="titulo">No Título</option>
+                            <option value="preambulo">No Preambulo</option>
+                            <option value="texto">No Conteúdo</option>
+                        </select>
+                        <!--FIM LINHA TIPO DE MATÉRIA-->
+                    </div>
+
+                    <!--LINHA TIPO DE MATÉRIA-->
+                    <!--                            <div class="titulo-pesquisa-avancada mt-5">Órgao demandante</div>
+                                                <select>
+                                                    <option>Tipo de matéria</option>
+                                                </select>-->
+                    <!--FIM LINHA TIPO DE MATÉRIA-->
+
+                    <button type="button" id="btnProcurar" class="btn-pesquisa-azul mt-5 btnEnviar">PESQUISAR</button>
+
+                    <div class="favoritar-busca text-right">
+                        <label title="Disponibilizamos no menu do site a opção 'pesquisas favoritas', acionando essa opção suas pesquisas favoritas ficarão disponíveis em um clique">Favoritar busca<input type="checkbox" id="btnFavoritar"></label>
+                        <p class="texto-explicativo-pesquisas-favoritas">Disponibilizamos no menu do site a opção 'pesquisas favoritas', acionando essa opção suas pesquisas favoritas ficarão disponíveis em um clique</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="filtro-de-secao-simples resultado-busca">
+    <div class="topo-de-filtro-secao">
+        <div class="container">
+            <div class="row">
+            </div>
+        </div>
+    </div>
+    <div class="corpo-resultado">
+        <div class="container" id="areaResultado">
+            <!-- ajax -->
+        </div>
+    </div>
+</div>
+
+<div class="container diario-do-dia">
+    <div class="row">
+        <div class="col-12 col-xl-9 col-lg-12">
+            <h1 class="txDiarioDia">Diário do Dia</h1>
+        </div>
+        <div class="col col-xl-3 col-lg-3 apresentacao">
+            <h1>Publicidade</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-xl-3 col-lg-12 diario-completo">
+            <!-- ajax -->
+        </div>
+
+        <div class="area-itens-secao col-12 col-xl-6 col-lg-12">
+            <div class="row">
+                <!-- ajax -->
+            </div>
+        </div>
+
+        <div class="col-12 col-xl-3 col-lg-12 texto-apresentacao">
+            <!--            <div class="box-conteudo-publicidade">
+                            <div class="parte-textual">
+                                <a href="https://www.dodf.df.gov.br/visualizar/anexos/ano/2022/arquivo/Manual-Condutas-Eleicoes-2022.pdf" target="_blank"><img src="/js/modules/default/layouts/imagens/background/arte-banner-manual-eleicoes-2022.jpg" alt="Publicidade"></a>
+                            </div>
+                        </div>-->
+
+            <div id="carouselExampleIndicators" class="carousel slide box-conteudo-publicidade" data-ride="carousel">
+
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                </ol>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item parte-textual active">
+                        <a href="https://www.dflegis.df.gov.br/" target="_blank"><img src="/js/modules/default/layouts/imagens/bannerDFLegis.jpg" class="d-block w-100" alt="DfLegis"></a>
+                    </div>
+                    <div class="carousel-item parte-textual">
+                        <a href="https://www.dodf.df.gov.br/visualizar/anexos/ano/2022/arquivo/Manual-Condutas-Eleicoes-2022.pdf" target="_blank"><img src="/js/modules/default/layouts/imagens/background/arte-banner-manual-eleicoes-2022.jpg" class="d-block w-100" alt="Publicidade"></a>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="filtro-de-secao">
+    <div class="topo-de-filtro-secao">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="titulo">Filtros de seção</p>
+                    <p class="explicacao">Caso queira refinar ainda mais sua busca, basta selecionar as opções listadas abaixo, com elas você poderá tanto escolher o órgão demandante quanto o tipo da matéria.</p>
+                </div>
+            </div>
+            <div class="row">
+                <!--<div class="col-1 col-xl-1 align-self-center text-center"><img src="/js/modules/default/layouts/imagens/icones/ico-filtro.svg" alt="Ícone pesquisa"></div>-->
+                <div class="col"><select class="slc-orgao-demandante" name="no_orgao"><option>Escolher órgão demandante</option></select></div>
+                <div class="col"><select class="slc-tp-ato" name="tp_materia"><option>Escolher tipo de matéria</option></select></div>
+            </div>
+        </div>
+    </div>
+    <div class="corpo-resultado">
+        <div class="container">
+            <div class="row">
+                <!-- ajax -->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 modulo-publicidade-pequenos-formatos mt-5">
+            <div id="carouselExampleIndicators" class="carousel slide box-conteudo-publicidade" data-ride="carousel">
+                
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                </ol>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item parte-textual active">
+                        <a href="https://www.dflegis.df.gov.br/" target="_blank"><img src="/js/modules/default/layouts/imagens/bannerDFLegis.jpg" class="d-block w-100" alt="DfLegis"></a>
+                    </div>
+                    <div class="carousel-item parte-textual">
+                        <a href="https://www.dodf.df.gov.br/visualizar/anexos/ano/2022/arquivo/Manual-Condutas-Eleicoes-2022.pdf" target="_blank"><img src="/js/modules/default/layouts/imagens/background/arte-banner-manual-eleicoes-2022.jpg" class="d-block w-100" alt="Publicidade"></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid ferramentas">
+    <div class="row">
+        <div class="col-xl-1 box-titulo-ferramenta">
+            <p class="textual">ferramentas</p>
+        </div>
+        <div class="col-xl-8 box-ferramentas">
+            <div class="caixa-ferramenta">
+                <div class="titulo-ferramenta borda-laranja">histórico de pesquisas</div>
+                <p class="mt-2 mb-5">Clique no botão abaixo para fazer a consulta de suas pesquisas feitas no DODFe.</p>
+                <p class="texto-centralizado"><a id="btnHistorico"  class="btn-ferramenta btn-laranja">Clique aqui</a></p>
+                <img src="/js/modules/default/layouts/imagens/icones/ico-historico.svg" alt="dodfe histórico de pesquisas" class="icones-ferramentas">
+            </div>
+            <div class="caixa-ferramenta">
+                <div class="titulo-ferramenta borda-azul">pesquisas favoritas</div>
+                <p class="mt-2 mb-5">Clicando no botão abaixo você terá acesso as suas pesquisas marcadas como favoritas.</p>
+                <p class="texto-centralizado"><a id="btnFavoritos"  class="btn-ferramenta btn-azul">Clique aqui</a></p>
+                <img src="/js/modules/default/layouts/imagens/icones/ico-favorito.svg" alt="dodfe diários favoritos" class="icones-ferramentas">
+            </div>
+            <div class="caixa-ferramenta">
+                <div class="titulo-ferramenta borda-verde">diários anteriores</div>
+                <p class="mt-2 mb-5">Quer ter acesso aos diários de todos os anos? Simples, basta clicar no botão abaixo</p>
+                <p class="texto-centralizado">
+                    <a id="btnDiretorio" class="btn-ferramenta btn-verde">Clique aqui</a>
+                </p>
+                <img src="/js/modules/default/layouts/imagens/icones/ico-diarios-anteriores.svg" alt="dodfe diários anteriores" class="icones-ferramentas">
+
+            </div>
+        </div>
+
+        <div class="col-xl-3 pr-0" >
+            <div class="box-creditos">
+                <div class="faq">
+                    <h1>FAQ</h1>
+                    <p>Quer saber quais as principais dúvidas sobre publicações? É fácil! <span class="font-weight-bold" id="btnFaq">Clique aqui</span> e saiba mais...</p>
+
+                </div>
+                <div class="valores">
+                    <h1>Valores</h1>
+                    <p>Quer saber quais os valores cobrados para publicações no DODF? <span class="font-weight-bold" id="btnValores">Clique aqui</span> e saiba mais...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="box-ferramentas-resultado <?= $this->diariosAnteriores == true ? "lft-negativo" : "" ?> ">
+
+    <span id="fecharJanela" class="btn-fechar-janela"><img src="/js/modules/default/layouts/imagens/icones/ico-fechar-janela.svg" alt="fechar janela"></span>
+    <span class="btn-fechar-janela-animacao"><img src="/js/modules/default/layouts/imagens/icones/ico-fechar-janela.svg" alt="fechar janela"></span>
+
+    <div class="historico-de-pesquisas display-none tpHide">
+        <h1>Histórico de pesquisas</h1>
+        <p>Abaixo são listados o(s) histórico(s) de pesquisa, caso queira você pode excluir clicando no botão exclusão.</p>
+        <table class="table tblHistorico">
+            <thead>
+                <tr>
+                    <th>Texto Pesquisado</th>
+                    <!--<th>Filtros usados</th>-->
+                    <th>data da pesquisa</th>
+                    <th>ação</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ajax response -->
+            </tbody>
+
+        </table>
+    </div>
+
+    <div class="pesquisas-favoritas display-none tpHide">
+        <h1>Pesquisas favoritas</h1>
+        <p>Abaixo são listadas a(s) pesquisa(s) macada como favorita, caso queira você pode excluir clicando no botão exclusão.</p>
+        <table class="table tblFavoritos">
+            <thead>
+                <tr>
+                    <th>Texto Pesquisado</th>
+                    <th>Filtros usados</th>
+                    <th>data da pesquisa</th>
+                    <th>ação</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ajax response -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="diarios-anteriores  <?= $this->diariosAnteriores == true ? "" : "display-none" ?>  tpHide">
+        <h1>Diários anteriores</h1>
+        <p>Abaixo são listados em formato de diretório todos os diários lançados a partir de 1967, para selecionar basta escolher a pasta.</p>
+        <p class="breadcrumb"><span class="arquivo" data-file="/">DODF</span></p>
+
+        <div id="local-arquivos">
+            <?php foreach (range(date("Y"), 1967) as $folder): ?>
+                <div class="arquivo lista-arquivos" data-file="<?= $folder ?>">
+                    <img src="/js/modules/default/layouts/imagens/icones/ico-folder.svg" alt="<?= $folder ?>">
+                    <p><?= $folder ?></p>
+                </div>
+            <?php endforeach ?>
+        </div>
+    </div>
+
+    <div class="info-valores display-none tpHide">
+        <h1>Quanto custa publicar no DODF?</h1>
+        <p>De acordo com a Portaria Nº 30, de 09 de dezembro de 2020, a publicação de matérias no Diário Oficial do Distrito Federal teve novos valores fixados. Por tratar-se de atualização da métrica de cobrança, os contratos vigentes não serão alterados.</p>
+        <h6>Texto:</h6>
+        <p>As publicações em texto devem considerar a unidade de medida caractere e passam a custar:<br>a) R$ 0,16 (dezesseis centavos) por caractere.</p>
+        <h6>Imagens:</h6>
+        <p>As imagens devem ser enviadas ou entregues no formato “JPEG” ou “PNG”, mantendo a proporção definida conforme tabela abaixo, e passam a custar:</p>
+        <table class="table tblValores table-responsive">
+            <thead>
+                <tr>
+                    <th>Preço</th>
+                    <th>Espaço</th>
+                    <th>Proporção *</th>
+                    <th>Gabaritos **</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>R$ 210,00 (duzentos e dez reais)</td>
+                    <td>Até 25% de uma coluna</td>
+                    <td><b class="proporcoes">10 : 7.35</b></td>
+                    <td>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/25c.pdf" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-pdf.svg" class="img-gabarito"></a>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/25c.ai" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-ai.svg" class="img-gabarito"></a>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/25c.psd" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-psd.svg" class="img-gabarito"></a>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/25c.eps" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-eps.svg" class="img-gabarito"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>R$ 420,00 (quatrocentos e vinte reais)</td>
+                    <td>Acima de 25% até 50% de uma coluna</td>
+                    <td><b class="proporcoes">10 : 14.7</b></td>
+                    <td>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/50c.pdf" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-pdf.svg" class="img-gabarito"></a>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/50c.ai" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-ai.svg" class="img-gabarito"></a>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/50c.psd" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-psd.svg" class="img-gabarito"></a>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/50c.eps" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-eps.svg" class="img-gabarito"></a>
+                    </td>                
+                </tr>
+                <tr>
+                    <td>R$ 840,00 (oitocentos e quarenta reais)</td>
+                    <td>Acima de 50% até 100% de uma coluna</td>
+                    <td><b class="proporcoes">10 : 29.4</b></td>
+                    <td>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/100c.pdf" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-pdf.svg" class="img-gabarito"></a>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/100c.ai" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-ai.svg" class="img-gabarito"></a>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/100c.psd" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-psd.svg" class="img-gabarito"></a>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/100c.eps" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-eps.svg" class="img-gabarito"></a>
+                    </td>                
+                </tr>
+                <tr>
+                    <td>R$ 840,00 (oitocentos e quarenta reais)</td>
+                    <td>Até 50% de uma página</td>
+                    <td><b class="proporcoes">20 : 14.1</b></td>
+                    <td>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/50p.pdf" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-pdf.svg" class="img-gabarito"></a>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/50p.ai" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-ai.svg" class="img-gabarito"></a>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/50p.psd" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-psd.svg" class="img-gabarito"></a>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/50p.eps" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-eps.svg" class="img-gabarito"></a>
+                    </td>                
+                </tr>
+                <tr>
+                    <td>R$ 1.680,00 (mil e seiscentos e oitenta reais)</td>
+                    <td>Acima de 50% até 100% de uma página</td>
+                    <td><b class="proporcoes">20 : 28.2</b></td>
+                    <td>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/100p.pdf" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-pdf.svg" class="img-gabarito"></a>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/100p.ai" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-ai.svg" class="img-gabarito"></a>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/100p.psd" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-psd.svg" class="img-gabarito"></a>
+                        <a href="/js/modules/default/layouts/imagens/gabaritos/100p.eps" target="_blank"><img src="/js/modules/default/layouts/imagens/icones/ico-eps.svg" class="img-gabarito"></a>
+                    </td>                
+                </tr>
+            </tbody>
+        </table>
+        <p class="observacoes">* Aconselha-se para definição de tamanho de imagem (em pixels) a multiplicação da proporção por 100. Exemplo: proporção 10 : 7.35, imagem com tamanho de 1000 x 735 (pixels). Aconselha-se também a utilização de artes com resolução mínima de 300dpi.</p>
+        <p class="observacoes">** Disponibilizamos gabaritos de exemplo, caso queira, baixe o arquivo e o abra em seu editor de imagem preferido (ex.: Photoshop, Illustrator, Gimp, Inkscape, etc). Após abrir o arquivo exclua a camada existente e a substitua por sua arte.</p>
+        <p class="sua-arte-no-jornal"><a href="/js/modules/default/layouts/imagens/medidas_dodf_2021.pdf" target='_blank'>Veja uma simulação de como sua arte ficará no DODF</a></p>
+        <p>Por motivos técnicos, tais como margem, preenchimento ou altura de linha, as publicações podem sofrer alterações com variação entre cinco pontos percentuais a mais ou a menos do tamanho em centímetros ou pixels.</p>
+        <h6>Etapas e respectivos prazos</h6>
+        <p>Para a publicação de matérias, os usuários poderão fazer o anúncio de forma on line ou presencial, com os documentos solicitados das 8:00 as 15:30 (horário ininterrupto), preencherem o formulário de pessoa física e/ou jurídica disponível no site: www.casacivil.df.gov.br/publicacao-no-dodf/ e no guichê de atendimento. O envio de matérias poderá ser em duas formas:</p>
+        <ul>
+            <li>On Line: através do e-mail: <a href="mailto:ineditoriais@buriti.df.gov.br">ineditoriais@buriti.df.gov.br</a></li>
+            <li>Presencial: térreo do edifício Anexo do Palácio do Buriti (sala 102)</li>
+        </ul>
+        <p>As matérias devem ser entregues por meio digital (pen drive, CD ou enviada através do e-mail) em formato Word com a fonte Times New Roman, tamanho 9. As tabelas, balanços e quadros devem possuir 12 ou 25 centímetros de largura para efeitos de formatação.</p>
+        <p>As figuras, gráficos e formulários devem estar no formato “JPEG” ou “PNG”, mantendo a correlação pixels X centímetros, conforme tabela constante do Anexo I da Portaria.</p>
+        <p>A responsabilidade das informações repassadas ao DODF para divulgação é exclusivamente do demandante.</p>
+        <p>O conteúdo a ser publicado será calculado via sistema DODF-e.</p>
+        <p>O prazo para a respectiva publicação é de até 48 horas após o registro da baixa do pagamento.</p>
+        <h6>ENDEREÇO E HORÁRIO DE FUNCIONAMENTO:</h6>
+        <p>O horário de atendimento é de 8:00 as 15:30 (horário ininterrupto), no térreo do Anexo do Palácio do Buriti (sala 102). Mais informações nos telefones (61) 3961-4502/4503.</p>
+
+    </div>
+
+    <div class="info-faq display-none tpHide">
+        <h1>Perguntas frequentes</h1>
+        <br>
+        <p><strong>Como ter acesso às edições impressas do DODF?</strong></p>
+        <p>Em relação às edições físicas, o DODF deixou de ser impresso em dezembro de 2016 e não possuímos, em acervo, edições impressas.</p>
+        <p><strong>Como acessar as edições digitais do DODF?</strong></p>
+        <p>No campo “Diários Anteriores” é possível ter acesso às publicações a partir de outubro de 1967. Ao clicar nesse ícone, são listados, em formato de diretório, todos os diários lançados e para selecionar basta escolher a pasta.</p>
+        <p><strong>Qual a temporalidade de guarda do DODF?</strong></p>
+        <p>A Portaria Conjunta Nº 10, de 15 /03/2016 - que dispõe sobre a recepção pelo Governo do Distrito Federal da Resolução n°14, de 24 de outubro de 2001, do Conselho Nacional de Arquivos (CONARQ) - estabelece a classificação, temporalidade e destinação de documentos de arquivo relativos às atividades-meio da administração pública. E, no caso das publicações do DODF, as mesmas têm o tempo de guarda de 5 anos, com posterior eliminação</p>
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+    var busca = '<?= $this->busca ?>';
+</script>
+
+<!--        <script type="text/javascript" src="/js/modules/dodf/development.js"></script>-->
+
+<script type="text/javascript" src="/js/modules/default/controllers/ListarController.js"></script>
+

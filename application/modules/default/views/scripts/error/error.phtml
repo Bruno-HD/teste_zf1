@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Erro na aplicação</title>
+    </head>
+    <body>
+        <div class="alert alert-warning margin-top-40">
+            <h3><strong>Não foi possível completar sua requisição por um dos seguintes motivos:</strong></h3><br />
+            <ul>
+                <li><h4>O site esta passando por alguma atualização!</h4></li>
+                <li><h4>Houve um erro interno e não foi possível exibir o resultado!</h4></li>
+                <li><h4>A página que você esta tentando acessar não existe mais!</h4></li>
+            </ul>
+        </div>
+
+
+        <?php if (isset($this->exception)): ?>
+            <h4><?php echo $this->message ?></h4>
+
+            <hr />
+            <h3>Informações sobre o erro:</h3>
+            <p>
+                <b>Mensagem:</b> <?php echo $this->exception->getMessage() ?>
+            </p>
+
+            <hr />
+            <h3>Stack trace:</h3>
+            <pre><?php echo $this->exception->getTraceAsString() ?>
+            </pre>
+
+            <hr />
+            <h3>Parâmetros utilizados:</h3>
+            <pre><?php echo $this->escape(var_export($this->request->getParams(), true)) ?>
+            </pre>
+
+        <?php endif ?>
+
+    </body>
+</html>

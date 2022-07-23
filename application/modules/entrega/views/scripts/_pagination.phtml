@@ -1,0 +1,38 @@
+<?php if ($this->pageCount > 1): ?>
+    <?php //-- Garantia de que todos os filtros serão respeitados na paginação
+        foreach (Zend_Controller_Front::getInstance()->getRequest()->getParams() as $urlParamsKey => $urlParamsVal){
+            if (!in_array($urlParamsKey, array('module', 'controller', 'action', 'page')) && !empty($urlParamsVal) && (is_array($urlParamsVal) ||  $urlParamsVal === strip_tags($urlParamsVal)) ){
+                if (substr($urlParamsKey, 0, 3) === 'dt_') {
+                    $params[$urlParamsKey] = implode('-', array_reverse(explode('/', $urlParamsVal)));
+                } elseif (is_array($urlParamsVal)) {    
+                    $params[$urlParamsKey] = (array)$urlParamsVal;
+                } else {
+                    $params[$urlParamsKey] = trim($urlParamsVal);
+                }
+            }
+        }
+        $params = isset($params) ? array_filter($params) : array();//Remove os campos vazios
+    ?>
+
+    <div class="text-center">
+        <ul class="pagination justify-content-center">
+            <?php $params['pagina'] = (isset($this->previous)) ? $this->previous : null ?>
+            <li class="page-item <?= (isset($this->previous)) ? '' : 'active' ?>">
+                <a class="page-link" href="<?= (isset($this->previous))? $this->url().'?'.http_build_query($params) : 'javascript:void(0)'; ?>">&laquo;</a>
+            </li>
+            
+            <?php foreach ($this->pagesInRange as $page): ?>
+                <?php $params['pagina'] = $page ?>
+                <li class="page-item <?= ($page == $this->current) ? 'active' : '' ?>">
+                    <a class="page-link" href="<?= ($page != $this->current) ? $this->url().'?'.http_build_query($params) : 'javascript:void(0)'; ?>" target="_self"><?= $page; ?></a>
+                </li>
+            <?php endforeach ?>
+            
+                
+            <?php $params['pagina'] = (isset($this->next)) ? $this->next : null ?>
+            <li class="page-item <?= (isset($this->next)) ? '' : 'active' ?>">
+                <a class="page-link" href="<?= (isset($this->next)) ? $this->url().'?'.http_build_query($params) : 'javascript:void(0)'; ?>">&raquo;</a>
+            </li>
+        </ul>
+    </div>
+<?php endif; ?>

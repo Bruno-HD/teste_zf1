@@ -1,0 +1,77 @@
+<h3>Lista de Patrimônio</h3>
+<hr />
+
+<div class="row">
+    <div class="col-xs-6">
+        <button class="btn btn-success margin-bottom20 hidden-print" data-toggle="collapse" data-target="#filtrarResultado">Filtrar Tabela</button>
+    </div>
+    <div class="col-xs-6 text-right">
+        <a href="/entrega/gestao/manter" id="btnAddClassificacao" class="btn btn-warning margin-bottom20 hidden-print">
+            <span class="glyphicon glyphicon-plus"></span> Cadastrar
+        </a>
+    </div>
+</div>
+
+<div id="filtrarResultado" class="<?= (!empty($this->filters)) ? 'in' : '' ?> collapse hidden-print mt-3">
+    <?php echo $this->formulario ?>    
+    <div class="clearfix"></div>
+</div>
+
+
+<?php if (!empty($this->data->lstEntregas)): ?>
+    <table id="tblListaEntrega" data-local="entrega" class="table table-bordered table-condensed table-striped tblListarEntrega mt-3">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Prazo</th>
+                <th>Concluída</th>
+                <th class="esconde-print"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($this->data->lstEntregas as $data): ?>
+                <tr class="ln-<?= $data['co_entrega'] ?>" data-id="<?= $data['co_entrega'] ?>">
+                    <td class="td-1">
+                        <?= $data["co_entrega"] ?>
+                    </td>
+                    <td class="td0">
+                        <?= $data["ds_titulo"] ?>
+                    </td>
+                    <td class="td1">
+                        <?= $data["tx_descricao"] ?>
+                    </td>
+                    <td class="td2">
+                        <?= implode('/', array_reverse(explode('-', $data['dt_prazo_entrega']))) ?>
+                    </td>
+                    <td class="td4">
+                        <?= $data["tp_entrega_concluida"] == "S" ? "Sim" : "Não" ?>
+                    </td>
+                    <td class="td5 hidden-print">
+                        <a href="/entrega/gestao/manter/co_entrega/<?= $data['co_entrega'] ?>" 
+                        class="btn btn-xs btn-primary btnEdtItem" title="Editar Entrega">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </a>
+                        <button class="btn btn-xs btn-danger btnRmvItem" data-id="<?= $data['co_entrega'] ?>" 
+                        data-local="TbEntrega" title="Remover Entrega">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="9" class="text-right"><strong>Total: <?= count($this->data->paginator) >= 1 ? $this->data->paginator->getTotalItemCount()-1 : '0' ?></strong></td>
+            </tr>
+        </tfoot>
+    </table>
+    <?= $this->paginationControl($this->data->paginator, null, null, array('filtro' => $this->filtro, 'ordem' => $this->ordem));?>
+
+<?php else: ?>
+    <h2 class="text-center">Nenhum registro foi encontrado!</h2>
+<?php endif ?>
+
+<?php //echo '<pre>'; print_r($this->data); echo '</pre>'; ?>
+
